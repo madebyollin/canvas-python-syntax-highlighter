@@ -67,6 +67,11 @@
         return state;
     }
     function highlight_all() {
+        // *sobs*
+        if (!document.querySelector(".TextLayer-container").textContent.includes("import ")) {
+            console.log("Probably not a python file, ignoring");
+            return;
+        }
         let pages = Array.from(document.querySelectorAll(".Page-container"));
         let state = {};
         var highlight_checker = window.setInterval(() => {
