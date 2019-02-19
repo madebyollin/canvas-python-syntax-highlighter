@@ -75,14 +75,11 @@
                 if (!page.is_highlighted) {
                     let c = page.querySelector("canvas");
                     if (c) {
-                        window.setTimeout(() => {
-                            // have to let the other canvas finish drawing first
-                            state = highlight_page(page, c, state);
-                            page.is_highlighted = true;
-                        }, 250);
+                        state = highlight_page(page, c, state);
+                        page.is_highlighted = true;
                     } else {
                         // we're out of canvases to highlight
-                        console.log("Checked highlights but stopped highlighting after page", page_count);
+                        // console.log("Checked highlights but stopped highlighting after page", page_count);
                         return;
                     }
                 }
@@ -93,9 +90,5 @@
             window.clearInterval(highlight_checker);
         }, 1000);
     }
-    console.log("syntax highlighting is hard");
-    // so we need to syntax highlight each page
-    // pages are selectable as 
-    // 
     window.setTimeout(highlight_all, 1500);
 })(this, this.document);
